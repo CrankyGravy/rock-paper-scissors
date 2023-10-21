@@ -13,7 +13,6 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   // Input for player selection
   playerSelection = prompt("Rock, Paper, or Scissors?").toUpperCase();
-
   console.log(playerSelection);
 
   // Computer selection
@@ -21,38 +20,42 @@ function playRound(playerSelection, computerSelection) {
   console.log(computerSelection);
 
   // If statement for result of game
-  function result() {
-    if (computerSelection === "ROCK" && playerSelection === "PAPER") {
-      return "You Win! Paper beats Rock";
-    } else if (computerSelection === "SCISSORS" && playerSelection === "ROCK") {
-      return "You Win! Rock beats Scissors";
-    } else if (
-      computerSelection === "PAPER" &&
-      playerSelection === "SCISSORS"
-    ) {
-      return "You Win! Paper beats Scissors";
-    } else if (computerSelection === "PAPER" && playerSelection === "ROCK") {
-      return "You Lose! Paper beats Rock";
-    } else if (computerSelection === "ROCK" && playerSelection === "SCISSORS") {
-      return "You Lose! Rock beats Scissors";
-    } else if (
-      computerSelection === "SCISSORS" &&
-      playerSelection === "PAPER"
-    ) {
-      return "You Lose! Scissors beats Paper";
-    } else if (computerSelection === playerSelection) {
-      return "Draw!";
+  if (computerSelection === "ROCK" && playerSelection === "PAPER") {
+    return Win;
+  } else if (computerSelection === "SCISSORS" && playerSelection === "ROCK") {
+    return Win;
+  } else if (computerSelection === "PAPER" && playerSelection === "SCISSORS") {
+    return Win;
+  } else if (computerSelection === "PAPER" && playerSelection === "ROCK") {
+    return Lose;
+  } else if (computerSelection === "ROCK" && playerSelection === "SCISSORS") {
+    return Lose;
+  } else if (computerSelection === "SCISSORS" && playerSelection === "PAPER") {
+    return Lose;
+  } else if (computerSelection === playerSelection) {
+    return Draw;
+  }
+}
+// Function with for loop to play five rounds and record previous scores
+
+let player = 0;
+let computer = 0;
+let equal = 0;
+let Win = "Win";
+let Lose = "Lose";
+let Draw = "Draw";
+
+// console.log(playRound());
+
+function playGame() {
+  for (let i = 0; i < 5; i++) {
+    console.log(playRound());
+    if (playRound() === Win) {
+      player++;
+    } else if (playRound() === Lose) {
+      computer++;
     }
   }
-  // return result();
-  console.log(result());
 }
 
-// Function with for loop to play five rounds and record previous scores
-function game() {
-  for (i = 0; i < 5; i++) {
-    playRound();
-  }
-}
-
-game();
+playGame();
