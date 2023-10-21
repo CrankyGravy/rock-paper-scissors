@@ -17,14 +17,31 @@ function game() {
   computerSelection = getComputerChoice().toUpperCase();
   console.log(computerSelection);
 
-  // If statement for repapaersult
-
-  if (computerSelection === playerSelection) {
-    result = "YES";
-  } else if (computerSelection != playerSelection) {
-    result = "NO";
+  // If statement for result of game
+  function result() {
+    if (computerSelection === "ROCK" && playerSelection === "PAPER") {
+      return "You Win! Paper beats Rock";
+    } else if (computerSelection === "SCISSORS" && playerSelection === "ROCK") {
+      return "You Win! Rock beats Scissors";
+    } else if (
+      computerSelection === "PAPER" &&
+      playerSelection === "SCISSORS"
+    ) {
+      return "You Win! Paper beats Scissors";
+    } else if (computerSelection === "PAPER" && playerSelection === "ROCK") {
+      return "You Lose! Paper beats Rock";
+    } else if (computerSelection === "ROCK" && playerSelection === "SCISSORS") {
+      return "You Lose! Rock beats Scissors";
+    } else if (
+      computerSelection === "SCISSORS" &&
+      playerSelection === "PAPER"
+    ) {
+      return "You Lose! Scissors beats Paper";
+    } else if (computerSelection === playerSelection) {
+      return "Draw!";
+    }
   }
-  console.log(result);
+  console.log(result());
 }
 
 game();
