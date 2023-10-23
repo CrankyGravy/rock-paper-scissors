@@ -21,9 +21,16 @@ function checkWinner(playerSelection, computerSelection) {
   return "Computer";
 }
 
-// function playRound (playerSelection, computerSelection){
-
-// }
+// Function for playing a round
+function playRound(playerSelection, computerSelection) {
+  const result = checkWinner(playerSelection, computerSelection);
+  if (result == "Tie") {
+    return "It's a tie";
+  } else if (result == "Player") {
+    return `You Win! ${playerSelection} beats ${computerSelection}.`;
+  }
+  return `You Lose! ${computerSelection} beats ${playerSelection}.`;
+}
 
 // // Function for computer vs player that declares if round is one or lost
 // function playRound(playerSelection, computerSelection) {
