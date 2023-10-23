@@ -1,11 +1,29 @@
 //  Array of choices per game
-let options = ["Rock", "Paper", "Scissors"];
+let options = ["rock", "paper", "scissors"];
 
 // Function that get the computers choice from options array above
 function getComputerChoice() {
   const choice = options[Math.floor(Math.random() * options.length)];
-  return options;
+  return choice;
 }
+
+// Function to check for the winner of a round
+function checkWinner(playerSelection, computerSelection) {
+  if (playerSelection == computerSelection) {
+    return "Tie";
+  } else if (
+    (playerSelection == "rock" && computerSelection == "scissors") ||
+    (playerSelection == "paper" && computerSelection == "rock") ||
+    (playerSelection == "scissors" && computerSelection == "paper")
+  ) {
+    return "Player";
+  }
+  return "Computer";
+}
+
+// function playRound (playerSelection, computerSelection){
+
+// }
 
 // // Function for computer vs player that declares if round is one or lost
 // function playRound(playerSelection, computerSelection) {
@@ -14,7 +32,7 @@ function getComputerChoice() {
 //   console.log(playerSelection);
 
 //   // Computer selection
-//   computerSelection = getComputerChoice().toUpperCase();
+//   computerSelection = getComputerChoice().toLowerCase();
 //   console.log(computerSelection);
 
 //   // If statement for result of game
