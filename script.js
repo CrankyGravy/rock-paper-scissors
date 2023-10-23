@@ -32,14 +32,25 @@ function playRound(playerSelection, computerSelection) {
   return `You Lose! ${computerSelection} beats ${playerSelection}.`;
 }
 
-// const playerSelection = "rock";
-// const computerSelection = getComputerChoice();
-// // console.log(playRound(playerSelection, computerSelection));
+// Function to prompt the user for a choice
+function getPlayerChoice() {
+  let validatedInput = false;
+  while (validatedInput == false) {
+    const choice = prompt("Rock, Paper or Scissors?").toLowerCase();
+    if (choice == null) {
+      continue;
+    }
+    if (options.includes(choice)) {
+      validatedInput = true;
+      return choice;
+    }
+  }
+}
 
 // Function to play 5 games and display results
 function game() {
   for (let i = 0; i < 5; i++) {
-    const playerSelection = "rock";
+    const playerSelection = getPlayerChoice();
     const computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
   }
