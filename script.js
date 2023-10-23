@@ -32,6 +32,20 @@ function playRound(playerSelection, computerSelection) {
   return `You Lose! ${computerSelection} beats ${playerSelection}.`;
 }
 
+// const playerSelection = "rock";
+// const computerSelection = getComputerChoice();
+// // console.log(playRound(playerSelection, computerSelection));
+
+// Function to play 5 games and display results
+function game() {
+  for (let i = 0; i < 5; i++) {
+    const playerSelection = "rock";
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+  }
+}
+
+game();
 // // Function for computer vs player that declares if round is one or lost
 // function playRound(playerSelection, computerSelection) {
 //   // Input for player selection
